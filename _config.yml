@@ -5,7 +5,7 @@ redcarpet:
 
 title: Gradle SSH Plugin
 tagline: 'Seamless Build and Deploy on Gradle'
-description: 'Gradle SSH Plugin provides remote command execution and file transfer features for continuous delivery.'
+description: 'Gradle SSH Plugin'
 url: 'http://gradle-ssh-plugin.github.io/'
 
 github:
