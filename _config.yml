@@ -4,7 +4,7 @@ redcarpet:
   extensions: [ "no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data" ]
 
 title: Gradle SSH Plugin
-tagline: 'Seamless Build and Deploy on Gradle'
+tagline: 'Fluent Build and Deploy on Gradle'
 description: 'Gradle SSH Plugin'
 url: 'http://gradle-ssh-plugin.github.io/'
 
