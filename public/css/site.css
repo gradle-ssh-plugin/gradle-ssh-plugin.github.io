@@ -27,12 +27,6 @@
 }
 
 /* Table of Contents */
-.sidebar-nav-item.level-h2 { padding-left: 2.0rem; }
-.sidebar-nav-item.level-h3 { padding-left: 2.5rem; }
-.sidebar-nav-item.level-h4 { padding-left: 3.0rem; }
-.sidebar-nav-item.level-h5 { padding-left: 3.5rem; }
-.sidebar-nav-item.level-h6 { padding-left: 4.0rem; }
-
 .sidebar-nav-item          { counter-reset: part; }
 .sidebar-nav-item.level-h2 { counter-reset: chapter; }
 .sidebar-nav-item.level-h3 { counter-reset: section; }
@@ -50,3 +44,8 @@
     margin-right: 0.25rem;
 }
 
+.sidebar-nav-item.level-h4,
+.sidebar-nav-item.level-h5,
+.sidebar-nav-item.level-h6 {
+    padding-left: 2.5rem;
+}
