@@ -7,4 +7,19 @@ $(function () {
         .attr('href', '#' + this.id)
         .text($(this).text()));
   });
+
+  if (location.pathname == '/build-report.html') {
+    var computeTemplate = function (template, branchName) {
+      return template.replace(/BRANCH/g, branchName);
+    }.bind(null, $('.page>ul').html());
+    $('.page>ul').empty();
+
+    $.get('/build-report/branch-list').done(function (branchList) {
+      branchList.split(/[\r\n]+/).filter(function (branchName) {
+        return branchName.match(/\w+/);
+      }).forEach(function (branchName) {
+        $(computeTemplate(branchName)).prependTo('.page>ul');
+      });
+    });
+  }
 });
