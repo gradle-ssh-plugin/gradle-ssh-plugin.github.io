@@ -12,4 +12,4 @@ github:
   repo: 'https://github.com/int128/gradle-ssh-plugin'
 
 product:
-  version: 0.3.11
+  version: 0.3.12
