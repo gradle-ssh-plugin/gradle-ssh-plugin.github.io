@@ -1,11 +1,12 @@
 $(function () {
-  var toc = $('<span class="toc"/>').insertAfter('.sidebar-nav-item.active');
+  $('.page table').addClass('table');
+
   $('h2[id],h3[id],h4[id],h5[id],h6[id]').each(function () {
-    toc.append(
-      $('<a class="sidebar-nav-item"/>')
-        .addClass('level-' + this.localName)
+    $('.toc>.nav').append($('<li>')
+      .addClass('level-' + this.localName)
+      .append($('<a>')
         .attr('href', '#' + this.id)
-        .text($(this).text()));
+        .text($(this).text())))
   });
 
   if (location.pathname == '/build-report.html') {
