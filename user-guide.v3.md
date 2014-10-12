@@ -1,6 +1,6 @@
 ---
 layout: page
-title: User Guide
+title: User Guide (0.3.x)
 ---
 
 
@@ -9,10 +9,7 @@ Overview
 
 Gradle SSH Plugin is a Gradle plugin which provides remote execution and file transfer features.
 
-This document is for version 0.4.x. See also following.
-
-* [Migration Guide (from 0.3.x to 0.4.x)](/migration.v4.html)
-* [User Guide (0.3.x)](/user-guide.v3.html)
+This document is for version 0.3.x. [Latest version is here](/user-guide.html).
 
 
 Getting Started
@@ -25,16 +22,6 @@ Getting Started
 5. Describe SSH operations in the task
 
 
-### Compatibility
-
-Gradle SSH Plugin 0.4.x requires following:
-
-* Java 7 or later
-* Gradle 2.0 or later
-
-Gradle SSH Plugin 0.3.x is still available for Gradle 1.x compatible.
-
-
 ### Create a script
 
 Create an empty file and save as `build.gradle`.
@@ -45,31 +32,23 @@ The project contains Gradle wrapper and Gradle installation is not needed.
 
 ### Add the plugin dependency
 
-The plugin is available on Bintrat JCenter repository.
-Gradle will fetch the plugin from Internet.
-
-Add the plugin to your script:
-
-```groovy
-plugins {
-  id 'org.hidetake.ssh' version '{{ site.product.version }}'
-}
-```
-
-Gradle 2.0 or earlier style:
+Add Gradle SSH plugin to the script:
 
 ```groovy
 buildscript {
   repositories {
-    jcenter()
+    mavenCentral()
   }
   dependencies {
     classpath 'org.hidetake:gradle-ssh-plugin:{{ site.product.version }}'
   }
 }
 
-apply plugin: 'org.hidetake.ssh'
+apply plugin: 'ssh'
 ```
+
+The plugin is available on Maven Central repository.
+Gradle will fetch the plugin from Internet.
 
 
 ### Add a remote host
@@ -98,38 +77,63 @@ Now we can specify each remote host by `remotes.web01` or `remotes.web02`.
 Also we can specify the web01 by `remotes.role('masterNode')`.
 
 
-### Run a SSH session in the task
+### Declare a SSH session
 
-Following code run a SSH session in the script:
+There are two ways to use SSH facility.
+
+1. Create a SSH task
+2. Call SSH method in the task
+
+
+#### Create a SSH task
+
+This may be mostly used.
+The plugin provides type of a SSH task as `SshTask`.
+It is a generic Gradle task and provides trivial features such as `dependsOn: task`, `doFirst` or `doLast`.
+
+Following code creates a SSH task in the script:
 
 ```groovy
-task checkWebServer << {
-  ssh.run {
-    session(remotes.web01) {
-      //execute ...
-    }
-    session(remotes.web02) {
-      //execute ...
-    }
+task checkWebServer(type: SshTask) {
+  session(remotes.web01) {
+    //execute ...
+  }
+  session(remotes.web02) {
+    //execute ...
   }
 }
 ```
 
-`ssh.run` method will connect to all remote hosts of sessions, i.e. web01 and web02,
-and evaluate each closure of sessions in order.
+Invoke Gradle with name of the task to execute it.
 
-More example.
+```bash
+./gradlew checkWebServer
+```
+
+The SSH task will connect to all remote hosts of sessions, i.e. web01 and web02.
+And it will evaluate each closure of sessions in order.
+
+
+#### Call sshexec method in a task
+
+The plugin also supports calling `sshexec` in a task.
+This may be useful if more complex scenario is needed.
+
+Exactly same syntax is available in a SSH task and the sshexec method,
+but the sshexec method returns a value of the last session closure.
+
+Here is an example.
 
 ```groovy
 task syncKernelParam << {
   def paramKey = 'net.core.wmem_max'
-  def paramValue = ssh.run {
+  def paramValue = sshexec {
     session(remotes.web01) {
       execute("sysctl '$paramKey' | sed -e 's/ //g'")
     }
   }
   assert paramValue.contains(paramKey)
-  ssh.run {
+  sshexec {
     session(remotes.web02) {
       execute("sysctl -w '$paramValue'")
     }
@@ -273,8 +277,7 @@ remotes {
 
 #### Connect through a proxy server
 
-A remote host can specify that connections should be made through a proxy server.
-Individual proxy server connections are configured in the `proxies` container provided by the plugin.
+A remote host can specify that connections should be made through a proxy server. Individual proxy server connections are configured in the `proxies` container provided by the plugin.
 
 The following code adds a proxy server to the `proxies` container:
 
@@ -299,9 +302,7 @@ Key            | Type                 | Description
 `password`     | String               | Proxy server password.
 `socksVersion` | Integer              | Protocol version when using `SOCKS`: 4 or 5. Defaults to 5.
 
-Once a proxy server is defined in the `proxies` container,
-it can be referenced per-remote, per-method or globally.
-Unless the remote's proxy property is set in a higher scope, connections made to that host will not be proxied.
+Once a proxy server is defined in the `proxies` container, it can be referenced per-remote, per-task or globally. Unless the remote's proxy property is set in a higher scope, connections made to that host will not be proxied.
 
 The following code shows how remote hosts can use different proxy servers.
 
@@ -341,23 +342,21 @@ remotes {
 The following shows how to set a global proxy server.
 
 ```groovy
-ssh.settings {
+ssh {
   // All remotes will use this proxy by default.
   // Each remote can override this configuration.
   proxy = proxies.socks01
 }
 ```
 
-The following shows how to set a proxy server on a particular method.
+The following shows how to set a proxy server on a particular task.
 
 ```groovy
-task jarSearch << {
-  ssh.run {
-    settings {
-      proxy = proxies.http01
-    }
-    session(remotes.role('mavenRepo')) { ... }
+task jarSearch(type: SshTask) {
+  ssh {
+    proxy = proxies.http01
   }
+  session(remotes.role('mavenRepo')) { ... }
 }
 ```
 
@@ -396,7 +395,7 @@ A remote host can be defined on execution phase by `remotes.create(name)`.
 
 ```groovy
 task setupRemote << {
-  ssh.run {
+  sshexec {
     session(remotes.web01) {
       def targetHost = execute 'cat settings/hostname'
       def targetUser = execute 'cat settings/username'
@@ -410,7 +409,7 @@ task setupRemote << {
 }
 
 task something(dependsOn: setupRemote) << {
-  ssh.run {
+  sshexec {
     session(remotes.dynamic1) {
       //execute ...
     }
@@ -502,7 +501,7 @@ executeBackground('ping -c 3 server') { result ->
 ```
 
 The method throws an exception if an exit status of the command is not zero.
-If a background command returned an error, `ssh.run` method waits for any other commands and throws an exception finally.
+If a background command returned an error, the task or sshexec method waits for any other commands and throws an exception finally.
 
 
 ### Execute a command with the sudo support
@@ -593,6 +592,8 @@ Key              | Type     | Description
 `dryRun`         | Boolean  | Dry run flag. If this is true, no action is performed. Default is false.
 `pty`            | Boolean  | If this is true, the PTY allocation is requested on the command execution. Default is false.
 `logging`        | Boolean  | If this is false, the logging of standard output and error is turned off, for such as hiding credential. Default is true.
+`outputLogLevel` | LogLevel | Log level of the standard output on the command or shell execution. Default is `LogLevel.QUIET`.
+`errorLogLevel`  | LogLevel | Log level of the standard error on the command or shell execution. Default is `LogLevel.ERROR`.
 `encoding`       | String   | Encoding of input and output on the command or shell execution. Default is `UTF-8`.
 `interaction`    | Closure  | Specifies an interaction with the stream on the command or shell execution. Default is no interaction.
 `extensions`     | List of classes | List of extension classes. If this is set, classes will be mixed in.
@@ -733,36 +734,46 @@ Override settings
 -----------------
 
 Connection settings and operation settings can be set globally
-and overridden by each remote hosts, methods or operation methods.
+and overridden by each remote hosts, tasks or operation methods.
 
 
-Category            | Global | Per method | Per remote | Per operation
---------------------|--------|------------|------------|--------------
-Connection settings | x      | x          | x          | -
-Operation settings  | x      | x          | -          | x
+Category            | Global | Per task | Per remote | Per operation
+--------------------|--------|----------|------------|--------------
+Connection settings | x      | x        | x          | -
+Operation settings  | x      | x        | -          | x
 
 
-Connection settings and operation settings can be set globally as follows.
+Connection settings and operation settings can be set globally in the ssh closure.
 
 ```groovy
-ssh.settings {
+ssh {
   knownHosts = allowAnyHosts
   dryRun = true
 }
 ```
 
-Connection settings and operation settings can be overridden as follows.
+Connection settings and operation settings can be overridden in a task.
 
 ```groovy
-task reloadServers << {
-  ssh.run {
-    settings {
-      // overrides global settings
-      pty = true
-    }
-    session(remotes.role('webServers')) {
-      executeBackground('sudo service httpd reload')
-    }
+task reloadServers(type: SshTask) {
+  ssh {
+    pty = true
+  }
+  session(remotes.role('webServers')) {
+    executeBackground('sudo service httpd reload')
+  }
+}
+```
+
+Same in a sshexec closure.
+
+```groovy
+sshexec {
+  ssh {
+    pty = true
+  }
+  session(remotes.role('webServers')) {
+    executeBackground('sudo service httpd reload')
   }
 }
 ```
@@ -792,8 +803,8 @@ Add custom DSL
 
 We can extend DSL syntax.
 
-Declare an extension class and add it to global or method specific settings.
-All methods in the extension class will be available in the session closure.
+Declare an extension class and add it to global or task specific settings.
+All methods in the class will be available in the session closure.
 
 ```groovy
 class RemoteFileAssertion {
@@ -802,15 +813,13 @@ class RemoteFileAssertion {
   }
 }
 
-ssh.settings {
+ssh {
   extensions.add RemoteFileAssertion
 }
 
-task checkApacheConfig << {
-  ssh.run {
-    session(remotes.webServer) {
-      assertFileContains '/etc/httpd/conf/httpd.conf', 'listen 80'
-    }
+task checkApacheConfig(type: SshTask) {
+  session(remotes.webServer) {
+    assertFileContains '/etc/httpd/conf/httpd.conf', 'listen 80'
   }
 }
 ```
