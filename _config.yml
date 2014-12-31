@@ -23,4 +23,4 @@ github:
   repo: https://github.com/int128/gradle-ssh-plugin
 
 product:
-  version: 0.4.5
+  version: 1.0.0
