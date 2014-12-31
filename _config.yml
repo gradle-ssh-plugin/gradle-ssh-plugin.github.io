@@ -12,8 +12,6 @@ links:
     url: /user-guide.html
   - title: Releases
     url: https://github.com/int128/gradle-ssh-plugin/releases
-  - title: Builds
-    url: /build-report.html
 
 right_links:
   - title: GitHub
