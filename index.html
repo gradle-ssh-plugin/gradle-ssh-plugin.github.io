@@ -5,68 +5,70 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Gradle SSH Plugin</title>
+    <title>Gradle SSH Plugin &mdash; Deploy your App from Gradle</title>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cosmo/bootstrap.min.css"/>
     <link rel="stylesheet" href="/public/site.css">
     <link rel="shortcut icon" href="/public/favicon.ico">
   </head>
 
   <body>
+
     <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10">
-            <h1>Deploy your App from Gradle</h1>
-            <p>A Gradle plugin which provides SSH facilities for continuous delivery.</p>
-          </div>
-          <div class="col-md-2">
-            <p><img src="/public/gradle-ssh-plugin.png" alt="Logo"></p>
-          </div>
-        </div>
+      <div class="container text-center">
+        <div><img src="/public/gradle-ssh-plugin.png" alt="Logo"></div>
+        <h1>Deploy your App from Gradle</h1>
+        <p>A Gradle plugin which provides SSH facilities for continuous delivery.</p>
+        <br/>
+        <a href="/docs/" class="btn btn-lg btn-default">Read the Document</a>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container text-center">
+      <h2>Gradle SSH Plugin</h2>
       <div class="row">
-        <div class="col-md-6"></p>
-          <h2>Features</h2>
-          <p>See also <a href="/user-guide.html">User Guide</a> for details.</p>
-
-          <h3>Integrated with Gradle</h3>
-          <ul>
-            <li>Run SSH sessions in the task</li>
-            <li>Deploy artifacts after build</li>
-          </ul>
-
-          <h3>Authentication and Security</h3>
-          <ul>
-            <li>Password authentication</li>
-            <li>Public key authentication</li>
-            <li>Putty Agent or OpenSSH agent support</li>
-            <li>Provide a password for sudo prompt</li>
-            <li>Host key verification with known_hosts</li>
-            <li>Connect via SSH gateways</li>
-            <li>Connect via SOCKS or HTTP proxy</li>
-          </ul>
-
-          <h3>Interaction</h3>
-          <ul>
-            <li>Interact with the remote command</li>
-            <li>Handle standard output and error</li>
-            <li>Write to standard input</li>
-          </ul>
+        <div class="col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Intuitive DSL</h3>
+              <p>Desinated DSL for SSH operations, integrated with Gradle.</p>
+              <p>Remote command execution and file transfer.</p>
+              <p>Interaction with standard I/O of remote command or shell.</p>
+            </div>
+          </div>
         </div>
-
-        <div class="col-md-6">
-          <h2>Getting Started</h2>
-          <p>Here is an example for typical deployment scenario.</p>
-          <div id="example-script"></div>
+        <div class="col-md-3 col-lg-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Accommodation</h3>
+              <p>User authentication with password, publickey or agent.</p>
+              <p>Host verification with OpenSSH style <code>known_hosts</code>.</p>
+              <p>Connection via gateway hosts or SOCKS/HTTPS proxy.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <h2>Contribution</h2>
-      <p>Gradle SSH Plugin is an open source software developed on the <a href="https://github.com/int128/gradle-ssh-plugin">GitHub project</a>.</p>
+      <h2>Getting Started</h2>
+      <p>Just add a depenency of the plugin.</p>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 text-left" id="example-script"></div>
+      </div>
+
+      <p>Next steps...</p>
+      <p>
+        <a href="/docs/" class="btn btn-default">Read the Document</a>
+        <a href="https://github.com/gradle-ssh-plugin/template" class="btn btn-primary">Get the Template Project</a>
+        <a href="https://github.com/int128/gradle-ssh-plugin" class="btn btn-info">GitHub</a>
+      </p>
+    </div>
+
+    <br/>
+    <div class="jumbotron">
+      <div class="container text-center">
+        Gradle SSH Plugin and Groovy SSH,
+        developed by Hidetake Iwata
+      </div>
     </div>
 
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>

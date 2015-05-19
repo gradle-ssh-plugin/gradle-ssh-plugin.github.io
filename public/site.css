@@ -1,10 +1,5 @@
-.navbar {
-  margin-bottom: 0;
-}
-nav + p {
-  display: none;
-}
 .jumbotron {
   background-color: #333;
   color: #fff;
+  margin-bottom: 0;
 }
