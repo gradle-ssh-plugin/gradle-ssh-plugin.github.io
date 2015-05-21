@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>404 Not Found</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cosmo/bootstrap.min.css"/>
+    <link rel="shortcut icon" href="/public/favicon.ico">
+
+    <script>
+      var redirection = {
+        '/user-guide.html': '/docs/',
+        '/getting-started.html': '/docs/',
+        '/user-guide.v10.html': '/docs/',
+        '/migration.v11.html': '/docs/',
+        '/migration.v4.html': '/docs/',
+        '/migration.v10.html': '/docs/',
+        '/user-guide.v3.html': '/docs/',
+        '/user-guide.v4.html': '/docs/'
+      };
+      if (location.pathname in redirection) {
+        location.replace(redirection[location.pathname]);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container text-center">
+      <h1>404 Not Found</h1>
+      <p><a href="/" class="btn btn-lg btn-default">Top</a></p>
+    </div>
+  </body>
+
+</html>
