@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Migration Guide (from 1.0.x to 1.1.x)</title>
+<title>Migration Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -503,20 +503,25 @@ table.CodeRay td.code>pre{padding:0}
 </head>
 <body class="article toc2 toc-right">
 <div id="header">
-<h1>Migration Guide (from 1.0.x to 1.1.x)</h1>
+<h1>Migration Guide</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_new_features">2. New features</a>
+<li><a href="#_migration_from_1_0_x_to_1_1_x">1. Migration from 1.0.x to 1.1.x</a>
 <ul class="sectlevel2">
-<li><a href="#_port_forwarding">2.1. Port forwarding</a></li>
-<li><a href="#_map_based_dsl_extension_system">2.2. Map based DSL extension system</a></li>
+<li><a href="#_new_features">1.1. New features</a></li>
+<li><a href="#_no_backward_compatible_change">1.2. No backward compatible change</a></li>
 </ul>
 </li>
-<li><a href="#_no_backward_compatible_change">3. No backward compatible change</a>
+<li><a href="#_migration_from_0_4_x_to_1_0_x">2. Migration from 0.4.x to 1.0.x</a>
 <ul class="sectlevel2">
-<li><a href="#_class_based_dsl_extension_system">3.1. Class based DSL extension system</a></li>
+<li><a href="#_no_backward_compatible_changes">2.1. No backward compatible changes</a></li>
+</ul>
+</li>
+<li><a href="#_migration_from_0_3_x_to_0_4_x">3. Migration from 0.3.x to 0.4.x</a>
+<ul class="sectlevel2">
+<li><a href="#_new_style">3.1. New style</a></li>
+<li><a href="#_no_backward_compatible_changes_2">3.2. No backward compatible changes</a></li>
 </ul>
 </li>
 </ul>
@@ -524,24 +529,22 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<h2 id="_migration_from_1_0_x_to_1_1_x">1. Migration from 1.0.x to 1.1.x</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document explains how to migrate from 1.0.x to 1.1.x.</p>
+<p>This section explains how to migrate from 1.0.x to 1.1.x.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_features">2. New features</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_port_forwarding">2.1. Port forwarding</h3>
+<h3 id="_new_features">1.1. New features</h3>
+<div class="sect3">
+<h4 id="_port_forwarding">1.1.1. Port forwarding</h4>
 <div class="paragraph">
-<p><a href="user-guide.html#enable-the-port-forwarding">Port forwarding</a> is supported now.</p>
+<p>Port forwarding is supported now.
+See <a href="#Enable the port forwarding">[Enable the port forwarding]</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_map_based_dsl_extension_system">2.2. Map based DSL extension system</h3>
+<div class="sect3">
+<h4 id="_map_based_dsl_extension_system">1.1.2. Map based DSL extension system</h4>
 <div class="paragraph">
 <p>We can extend DSL with a map of method name and implementation.
 Following example adds the method <code>restartAppServer</code>.</p>
@@ -564,12 +567,10 @@ ssh.run {
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_no_backward_compatible_change">3. No backward compatible change</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_class_based_dsl_extension_system">3.1. Class based DSL extension system</h3>
+<h3 id="_no_backward_compatible_change">1.2. No backward compatible change</h3>
+<div class="sect3">
+<h4 id="_class_based_dsl_extension_system">1.2.1. Class based DSL extension system</h4>
 <div class="paragraph">
 <p>Any extension classes in the build script will no longer work.
 They must be placed in the <code>buildSrc/src/main/groovy</code> directory.</p>
@@ -609,9 +610,224 @@ ssh.settings {
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_migration_from_0_4_x_to_1_0_x">2. Migration from 0.4.x to 1.0.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to migrate from 0.4.x to 1.0.x.</p>
+</div>
+<div class="sect2">
+<h3 id="_no_backward_compatible_changes">2.1. No backward compatible changes</h3>
+<div class="paragraph">
+<p><code>sshexec</code> is no longer supported. Use <code>ssh.run</code> instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">task example &lt;&lt; {
+  <span class="comment">// FIXME: sshexec is no longer supported</span>
+  sshexec {
+    session(...) {...}
+  }
+
+  <span class="comment">// use ssh.run instead</span>
+  ssh.run {
+    session(...) {...}
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ssh {}</code> is no longer supported. Use <code>ssh.settings {}</code> instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// FIXME: ssh is no longer supported</span>
+ssh {
+  knownHosts = allowAnyHosts
+}
+
+<span class="comment">// use ssh.settings instead</span>
+ssh.settings {
+  knownHosts = allowAnyHosts
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration_from_0_3_x_to_0_4_x">3. Migration from 0.3.x to 0.4.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to migrate from 0.3.x to 0.4.x.</p>
+</div>
+<div class="paragraph">
+<p>Since 0.4.0, core code has been separated to the SSH library
+<a href="https://github.com/int128/groovy-ssh">groovy-ssh</a> and removed from the plugin.</p>
+</div>
+<div class="paragraph">
+<p>It introduces new style which is common between the plugin and the SSH library.
+It also causes no backward compatible changes.</p>
+</div>
+<div class="paragraph">
+<p>Please let me know if there is any problem.</p>
+</div>
+<div class="sect2">
+<h3 id="_new_style">3.1. New style</h3>
+<div class="sect3">
+<h4 id="_global_settings">3.1.1. Global settings</h4>
+<div class="paragraph">
+<p><code>ssh</code> method has been deprecated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh {
+  <span class="comment">// apply global settings here</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, use <code>ssh.settings</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh.settings {
+  <span class="comment">// apply global settings here</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ssh_execution">3.1.2. SSH execution</h4>
+<div class="paragraph">
+<p><code>SshTask</code> and <code>sshexec</code> method have been deprecated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// Deprecated</span>
+task testTask1(<span class="key">type</span>: SshTask) {
+  ssh {
+    dryRun = <span class="predefined-constant">true</span>
+  }
+  session(remotes.webServer) {
+    execute <span class="string"><span class="delimiter">'</span><span class="content">ls</span><span class="delimiter">'</span></span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">task testTask1 &lt;&lt; {
+  <span class="comment">// Deprecated</span>
+  sshexec {
+    ssh {
+      dryRun = <span class="predefined-constant">true</span>
+    }
+    session(remotes.webServer) {
+      execute <span class="string"><span class="delimiter">'</span><span class="content">ls</span><span class="delimiter">'</span></span>
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, use <code>ssh.run</code> method in the task.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">task testTask1 &lt;&lt; {
+  ssh.run {
+    settings {
+      <span class="comment">// apply one-time settings here</span>
+      dryRun = <span class="predefined-constant">true</span>
+    }
+    session(ssh.remotes.webServer) {
+      <span class="comment">// describe operations here</span>
+      execute <span class="string"><span class="delimiter">'</span><span class="content">ls</span><span class="delimiter">'</span></span>
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_no_backward_compatible_changes_2">3.2. No backward compatible changes</h3>
+<div class="sect3">
+<h4 id="_logging_settings">3.2.1. Logging settings</h4>
+<div class="paragraph">
+<p>Following settings have been removed.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outputLogLevel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LogLevel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log level of the standard output on the command or shell execution. Default is <code>LogLevel.QUIET</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>errorLogLevel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LogLevel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log level of the standard error on the command or shell execution. Default is <code>LogLevel.ERROR</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Instead use <code>logging</code> setting to enable verbose logging.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>logging</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this is <code>slf4j</code>, console log of the remote command is sent to Gradle logger. If this is <code>stdout</code>, it is sent to standard output/error. If this is <code>none</code>, console logging is turned off. Defaults to <code>slf4j</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh.settings {
+  logging = <span class="string"><span class="delimiter">'</span><span class="content">stdout</span><span class="delimiter">'</span></span>
+}
+ssh.run {
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-13 00:01:49 JST
+Last updated 2015-05-26 23:54:04 UTC
 </div>
 </div>
 </body>
