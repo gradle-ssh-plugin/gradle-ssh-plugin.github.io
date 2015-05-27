@@ -514,52 +514,74 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel0">
 <li><a href="#_introduction">Introduction</a>
 <ul class="sectlevel1">
-<li><a href="#_what_is_gradle_ssh_plugin">1. What is Gradle SSH Plugin</a></li>
+<li><a href="#_what_is_gradle_ssh_plugin">What is Gradle SSH Plugin</a></li>
+<li><a href="#_what_is_groovy_ssh">What is Groovy SSH</a></li>
 </ul>
 </li>
 <li><a href="#_getting_started">Getting Started</a>
 <ul class="sectlevel1">
-<li><a href="#_use_gradle_ssh_plugin">2. Use Gradle SSH Plugin</a>
+<li><a href="#_use_gradle_ssh_plugin">Use Gradle SSH Plugin</a>
 <ul class="sectlevel2">
-<li><a href="#_requirement">2.1. Requirement</a></li>
-<li><a href="#_create_a_project">2.2. Create a project</a></li>
-<li><a href="#_add_the_plugin_dependency">2.3. Add the plugin dependency</a></li>
-<li><a href="#_add_a_remote_host">2.4. Add a remote host</a></li>
-<li><a href="#_run_a_ssh_session_in_the_task">2.5. Run a SSH session in the task</a></li>
-<li><a href="#_describe_ssh_operations">2.6. Describe SSH operations</a></li>
-<li><a href="#_run_the_script">2.7. Run the script</a></li>
+<li><a href="#_requirement">Requirement</a></li>
+<li><a href="#_create_a_project">Create a project</a></li>
+<li><a href="#_add_the_plugin_dependency">Add the plugin dependency</a></li>
+<li><a href="#_add_a_remote_host">Add a remote host</a></li>
+<li><a href="#_run_a_ssh_session_in_the_task">Run a SSH session in the task</a></li>
+<li><a href="#_describe_ssh_operations">Describe SSH operations</a></li>
+<li><a href="#_run_the_script">Run the script</a></li>
 </ul>
 </li>
-<li><a href="#_use_groovy_ssh">3. Use Groovy SSH</a></li>
+<li><a href="#_use_groovy_ssh">Use Groovy SSH</a></li>
 </ul>
 </li>
 <li><a href="#_user_guide">User Guide</a>
 <ul class="sectlevel1">
-<li><a href="#_manage_remote_hosts">4. Manage remote hosts</a>
+<li><a href="#_manage_remote_hosts">Manage remote hosts</a>
 <ul class="sectlevel2">
-<li><a href="#_add_a_remote_host_2">4.1. Add a remote host</a></li>
-<li><a href="#_associate_with_roles">4.2. Associate with roles</a></li>
-<li><a href="#_manipulate_on_execution_phase">4.3. Manipulate on execution phase</a></li>
+<li><a href="#_add_a_remote_host_2">Add a remote host</a></li>
+<li><a href="#_associate_with_roles">Associate with roles</a></li>
+<li><a href="#_manipulate_on_execution_phase">Manipulate on execution phase</a></li>
 </ul>
 </li>
-<li><a href="#_perform_operations">5. Perform operations</a>
+<li><a href="#_perform_operations">Perform operations</a>
 <ul class="sectlevel2">
-<li><a href="#_execute_a_command">5.1. Execute a command</a></li>
-<li><a href="#_execute_a_command_in_background">5.2. Execute a command in background</a></li>
-<li><a href="#_execute_a_command_with_the_sudo_support">5.3. Execute a command with the sudo support</a></li>
-<li><a href="#_execute_a_shell">5.4. Execute a shell</a></li>
-<li><a href="#_transfer_a_file_or_directory">5.5. Transfer a file or directory</a></li>
-<li><a href="#_enable_the_port_forwarding">5.6. Enable the port forwarding</a></li>
-<li><a href="#_operation_settings">5.7. Operation settings</a></li>
-<li><a href="#_the_stream_interaction_support">5.8. The stream interaction support</a></li>
+<li><a href="#_execute_a_command">Execute a command</a></li>
+<li><a href="#_execute_a_command_in_background">Execute a command in background</a></li>
+<li><a href="#_execute_a_command_with_the_sudo_support">Execute a command with the sudo support</a></li>
+<li><a href="#_execute_a_shell">Execute a shell</a></li>
+<li><a href="#_transfer_a_file_or_directory">Transfer a file or directory</a></li>
+<li><a href="#_enable_the_port_forwarding">Enable the port forwarding</a></li>
+<li><a href="#_operation_settings">Operation settings</a></li>
+<li><a href="#_the_stream_interaction_support">The stream interaction support</a></li>
 </ul>
 </li>
-<li><a href="#_override_settings">6. Override settings</a></li>
-<li><a href="#_dsl_extension_system">7. DSL extension system</a>
+<li><a href="#_override_settings">Override settings</a></li>
+<li><a href="#_dsl_extension_system">DSL extension system</a>
 <ul class="sectlevel2">
-<li><a href="#_start_from_a_simple_extension">7.1. Start from a simple extension</a></li>
-<li><a href="#_use_gradle_feature_in_an_extension">7.2. Use Gradle feature in an extension</a></li>
-<li><a href="#_alternative_trait_based_extension">7.3. Alternative: Trait based extension</a></li>
+<li><a href="#_start_from_a_simple_extension">Start from a simple extension</a></li>
+<li><a href="#_use_gradle_feature_in_an_extension">Use Gradle feature in an extension</a></li>
+<li><a href="#_alternative_trait_based_extension">Alternative: Trait based extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_migration_guide">Migration Guide</a>
+<ul class="sectlevel1">
+<li><a href="#_migration_from_1_0_x_to_1_1_x">Migration from 1.0.x to 1.1.x</a>
+<ul class="sectlevel2">
+<li><a href="#_new_features">New features</a></li>
+<li><a href="#_no_backward_compatible_change">No backward compatible change</a></li>
+</ul>
+</li>
+<li><a href="#_migration_from_0_4_x_to_1_0_x">Migration from 0.4.x to 1.0.x</a>
+<ul class="sectlevel2">
+<li><a href="#_no_backward_compatible_changes">No backward compatible changes</a></li>
+</ul>
+</li>
+<li><a href="#_migration_from_0_3_x_to_0_4_x">Migration from 0.3.x to 0.4.x</a>
+<ul class="sectlevel2">
+<li><a href="#_new_style">New style</a></li>
+<li><a href="#_no_backward_compatible_changes_2">No backward compatible changes</a></li>
 </ul>
 </li>
 </ul>
@@ -571,30 +593,37 @@ table.CodeRay td.code>pre{padding:0}
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document explains Gradle SSH Plugin, that is a Gradle plugin providing SSH facilities for continuous delivery. It also explains Groovy SSH, that is a SSH automation tool and library, internally used by Gradle SSH Plugin.</p>
+<p>This document explains Gradle SSH Plugin 1.1.3 and Groovy SSH 1.1.7.</p>
 </div>
 </div>
 </div>
 <h1 id="_introduction" class="sect0">Introduction</h1>
 <div class="sect1">
-<h2 id="_what_is_gradle_ssh_plugin">1. What is Gradle SSH Plugin</h2>
+<h2 id="_what_is_gradle_ssh_plugin">What is Gradle SSH Plugin</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Gradle SSH Plugin provides SSH facilities such as command execution or file transfer on Gradle.
-<a href="https://gradle.org/">Gradle</a> is a build automation system for multi-language.</p>
+<p>Gradle SSH Plugin is a <a href="https://gradle.org/">Gradle</a> plugin which provides SSH facilities such as command execution or file transfer for continuous delivery.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_groovy_ssh">What is Groovy SSH</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Groovy SSH is an automation tool which provides SSH facilities such as command execution or file transfer.
+It is provided as an executable JAR so can be a library or a command line tool.</p>
 </div>
 <div class="paragraph">
-<p>Gradle SSH Plugin internally uses Groovy SSH library.
-Groovy SSH is an automation tool and library using SSH protocol.</p>
+<p>Gradle SSH Plugin internally uses the library of Groovy SSH.</p>
 </div>
 </div>
 </div>
 <h1 id="_getting_started" class="sect0">Getting Started</h1>
 <div class="sect1">
-<h2 id="_use_gradle_ssh_plugin">2. Use Gradle SSH Plugin</h2>
+<h2 id="_use_gradle_ssh_plugin">Use Gradle SSH Plugin</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_requirement">2.1. Requirement</h3>
+<h3 id="_requirement">Requirement</h3>
 <div class="paragraph">
 <p>Gradle SSH Plugin requires following:</p>
 </div>
@@ -614,9 +643,9 @@ See later section for details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_a_project">2.2. Create a project</h3>
+<h3 id="_create_a_project">Create a project</h3>
 <div class="sect3">
-<h4 id="_clone_the_template_project">2.2.1. Clone the template project</h4>
+<h4 id="_clone_the_template_project">Clone the template project</h4>
 <div class="paragraph">
 <p>Get the <a href="https://github.com/gradle-ssh-plugin/template">Gradle SSH Plugin Template Project</a> for quick start.
 The project contains Gradle wrapper, so Gradle installation is not needed.</p>
@@ -636,14 +665,14 @@ cd awesome-ssh
 </div>
 </div>
 <div class="sect3">
-<h4 id="_use_an_existent_project">2.2.2. Use an existent project</h4>
+<h4 id="_use_an_existent_project">Use an existent project</h4>
 <div class="paragraph">
 <p>Of course we can add the plugin to an existent project.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_add_the_plugin_dependency">2.3. Add the plugin dependency</h3>
+<h3 id="_add_the_plugin_dependency">Add the plugin dependency</h3>
 <div class="paragraph">
 <p>The plugin is available on the Gradle plugin registry.
 Gradle will fetch the plugin from Internet.</p>
@@ -676,7 +705,7 @@ apply <span class="key">plugin</span>: <span class="string"><span class="delimit
 </div>
 </div>
 <div class="sect3">
-<h4 id="_gradle_1_x_support">2.3.1. Gradle 1.x support</h4>
+<h4 id="_gradle_1_x_support">Gradle 1.x support</h4>
 <div class="paragraph">
 <p>The plugin also works on Gradle 1.x with the backports library:</p>
 </div>
@@ -702,7 +731,7 @@ and still experimental.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_add_a_remote_host">2.4. Add a remote host</h3>
+<h3 id="_add_a_remote_host">Add a remote host</h3>
 <div class="paragraph">
 <p>The plugin adds a container of remote hosts to the project.
 One or more remote hosts can be added in the <code>remotes</code> closure.
@@ -735,7 +764,7 @@ Also we can specify the remote host <em>web01</em> by a role such as <code>remot
 </div>
 </div>
 <div class="sect2">
-<h3 id="_run_a_ssh_session_in_the_task">2.5. Run a SSH session in the task</h3>
+<h3 id="_run_a_ssh_session_in_the_task">Run a SSH session in the task</h3>
 <div class="paragraph">
 <p>Call <code>ssh.run</code> method to run one or more SSH sessions as follows.</p>
 </div>
@@ -758,7 +787,7 @@ Also we can specify the remote host <em>web01</em> by a role such as <code>remot
 and evaluate each closure of sessions in order.</p>
 </div>
 <div class="sect3">
-<h4 id="_obtain_a_result_of_command">2.5.1. Obtain a result of command</h4>
+<h4 id="_obtain_a_result_of_command">Obtain a result of command</h4>
 <div class="paragraph">
 <p><code>ssh.run</code> method will return the result of last declared session.
 So we can use the method to retrieve a result of remote command as like:</p>
@@ -783,7 +812,7 @@ So we can use the method to retrieve a result of remote command as like:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_more_about_sessions">2.5.2. More about sessions</h4>
+<h4 id="_more_about_sessions">More about sessions</h4>
 <div class="paragraph">
 <p>A session consists of a remote host to connect and a closure.
 Following code declares a session which connects to <em>web01</em> and executes a command.</p>
@@ -836,7 +865,7 @@ session(remotes.web02) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_describe_ssh_operations">2.6. Describe SSH operations</h3>
+<h3 id="_describe_ssh_operations">Describe SSH operations</h3>
 <div class="paragraph">
 <p>We can describe SSH operations in the session closure.</p>
 </div>
@@ -887,7 +916,7 @@ session(remotes.web02) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_run_the_script">2.7. Run the script</h3>
+<h3 id="_run_the_script">Run the script</h3>
 <div class="paragraph">
 <p>Now the script is ready.</p>
 </div>
@@ -934,7 +963,7 @@ task reload &lt;&lt; {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dry_run_the_script">2.7.1. Dry run the script</h4>
+<h4 id="_dry_run_the_script">Dry run the script</h4>
 <div class="paragraph">
 <p>We can run the script without any actual connections.</p>
 </div>
@@ -952,7 +981,7 @@ so invoke the task with <code>dryRun</code> property to perform dry-run.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_use_groovy_ssh">3. Use Groovy SSH</h2>
+<h2 id="_use_groovy_ssh">Use Groovy SSH</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -970,7 +999,7 @@ work in progress
 </div>
 <h1 id="_user_guide" class="sect0">User Guide</h1>
 <div class="sect1">
-<h2 id="_manage_remote_hosts">4. Manage remote hosts</h2>
+<h2 id="_manage_remote_hosts">Manage remote hosts</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The plugin adds a container of remote hosts to the project.
@@ -979,7 +1008,7 @@ an <a href="http://www.gradle.org/docs/current/javadoc/org/gradle/api/NamedDomai
 and has role support methods extended by the plugin.</p>
 </div>
 <div class="sect2">
-<h3 id="_add_a_remote_host_2">4.1. Add a remote host</h3>
+<h3 id="_add_a_remote_host_2">Add a remote host</h3>
 <div class="paragraph">
 <p>Following code adds a remote host to the remote hosts container:</p>
 </div>
@@ -1033,7 +1062,7 @@ and has role support methods extended by the plugin.</p>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_set_connection_settings">4.1.1. Set connection settings</h4>
+<h4 id="_set_connection_settings">Set connection settings</h4>
 <div class="paragraph">
 <p>Also following settings can be set in a remote closure. These can be set globally in the project.</p>
 </div>
@@ -1095,7 +1124,7 @@ and has role support methods extended by the plugin.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_connect_through_gateway_servers">4.1.2. Connect through gateway servers</h4>
+<h4 id="_connect_through_gateway_servers">Connect through gateway servers</h4>
 <div class="paragraph">
 <p>A remote host can be connected through one or more gateway servers.</p>
 </div>
@@ -1179,7 +1208,7 @@ Because the gateway connection is achieved with the port forwarding, <code>known
 </div>
 </div>
 <div class="sect3">
-<h4 id="_connect_through_a_proxy_server">4.1.3. Connect through a proxy server</h4>
+<h4 id="_connect_through_a_proxy_server">Connect through a proxy server</h4>
 <div class="paragraph">
 <p>A remote host can specify that connections should be made through a proxy server.
 Individual proxy server connections are configured in the <code>proxies</code> container provided by the plugin.</p>
@@ -1319,7 +1348,7 @@ remotes {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_associate_with_roles">4.2. Associate with roles</h3>
+<h3 id="_associate_with_roles">Associate with roles</h3>
 <div class="paragraph">
 <p>Call <code>role</code> method to associate the host with one or more roles.</p>
 </div>
@@ -1351,7 +1380,7 @@ session(remotes.role(<span class="string"><span class="delimiter">'</span><span 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_manipulate_on_execution_phase">4.3. Manipulate on execution phase</h3>
+<h3 id="_manipulate_on_execution_phase">Manipulate on execution phase</h3>
 <div class="paragraph">
 <p>A remote host can be defined on execution phase by <code>remotes.create(name)</code>.</p>
 </div>
@@ -1384,7 +1413,7 @@ task something(<span class="key">dependsOn</span>: setupRemote) &lt;&lt; {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_perform_operations">5. Perform operations</h2>
+<h2 id="_perform_operations">Perform operations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Following methods are available in a session closure.</p>
@@ -1412,7 +1441,7 @@ task something(<span class="key">dependsOn</span>: setupRemote) &lt;&lt; {
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_execute_a_command">5.1. Execute a command</h3>
+<h3 id="_execute_a_command">Execute a command</h3>
 <div class="paragraph">
 <p>Call the <code>execute</code> method with a command to execute.</p>
 </div>
@@ -1459,7 +1488,7 @@ println result</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_execute_a_command_in_background">5.2. Execute a command in background</h3>
+<h3 id="_execute_a_command_in_background">Execute a command in background</h3>
 <div class="paragraph">
 <p>Call the <code>executeBackground</code> method with a command to execute in background.</p>
 </div>
@@ -1514,7 +1543,7 @@ If a background command returned an error, <code>ssh.run</code> method waits for
 </div>
 </div>
 <div class="sect2">
-<h3 id="_execute_a_command_with_the_sudo_support">5.3. Execute a command with the sudo support</h3>
+<h3 id="_execute_a_command_with_the_sudo_support">Execute a command with the sudo support</h3>
 <div class="paragraph">
 <p>Call the <code>executeSudo</code> method with a command to execute with the sudo support.
 The method prepends <code>sudo -S -p</code> to the command and will provide a password for sudo prompt.</p>
@@ -1555,7 +1584,7 @@ println result</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_execute_a_shell">5.4. Execute a shell</h3>
+<h3 id="_execute_a_shell">Execute a shell</h3>
 <div class="paragraph">
 <p>Call the <code>shell</code> method to execute a shell.
 The method is useful for a limited environment which supports only a shell such as Cisco IOS.</p>
@@ -1584,7 +1613,7 @@ The method is useful for a limited environment which supports only a shell such 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_transfer_a_file_or_directory">5.5. Transfer a file or directory</h3>
+<h3 id="_transfer_a_file_or_directory">Transfer a file or directory</h3>
 <div class="paragraph">
 <p>Call the <code>get</code> method to get a file or directory from the remote host.</p>
 </div>
@@ -1638,7 +1667,7 @@ put <span class="key">bytes</span>: [<span class="hex">0xff</span>, <span class=
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enable_the_port_forwarding">5.6. Enable the port forwarding</h3>
+<h3 id="_enable_the_port_forwarding">Enable the port forwarding</h3>
 <div class="paragraph">
 <p>Call the <code>forwardLocalPort</code> method to forward a local port to a remote port.</p>
 </div>
@@ -1770,7 +1799,7 @@ ssh.run {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_operation_settings">5.7. Operation settings</h3>
+<h3 id="_operation_settings">Operation settings</h3>
 <div class="paragraph">
 <p>Following settings can be given to operation methods.</p>
 </div>
@@ -1837,14 +1866,14 @@ ssh.run {
 </table>
 </div>
 <div class="sect2">
-<h3 id="_the_stream_interaction_support">5.8. The stream interaction support</h3>
+<h3 id="_the_stream_interaction_support">The stream interaction support</h3>
 <div class="paragraph">
 <p>The execute method can interact with the stream of command executed on the remote host.
 The shell method can do same.
 This feature is useful for providing a password or yes/no answer.</p>
 </div>
 <div class="sect3">
-<h4 id="_declare_interaction_rules">5.8.1. Declare interaction rules</h4>
+<h4 id="_declare_interaction_rules">Declare interaction rules</h4>
 <div class="paragraph">
 <p>Call the execute or shell method with an <code>interaction</code> setting which contains one or more interaction rules.
 Interaction rules will be evaluated in order.
@@ -1870,7 +1899,7 @@ If any rule has been matched, others are not evaluated more.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_an_interaction_rule_is">5.8.2. An interaction rule is</h4>
+<h4 id="_an_interaction_rule_is">An interaction rule is</h4>
 <div class="paragraph">
 <p>An interaction rule consists of a pattern match and an action closure.
 The action closure will be executed if the pattern match is satisfied.</p>
@@ -1965,7 +1994,7 @@ but C is evaluated after A has been matched.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_handle_the_prompt">5.8.3. Example: handle the prompt</h4>
+<h4 id="_example_handle_the_prompt">Example: handle the prompt</h4>
 <div class="paragraph">
 <p>Let&#8217;s take a look at the following example.</p>
 </div>
@@ -2011,7 +2040,7 @@ shell <span class="key">interaction</span>: {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_handle_more_prompts">5.8.4. Example: handle more prompts</h4>
+<h4 id="_example_handle_more_prompts">Example: handle more prompts</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
@@ -2032,7 +2061,7 @@ shell <span class="key">interaction</span>: {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_override_settings">6. Override settings</h2>
+<h2 id="_override_settings">Override settings</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Connection settings and operation settings can be set globally
@@ -2127,14 +2156,14 @@ execute(<span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dsl_extension_system">7. DSL extension system</h2>
+<h2 id="_dsl_extension_system">DSL extension system</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We can extend DSL vocabulary using the extension system.
 This feature is still experimental and may be improved in the future.</p>
 </div>
 <div class="sect2">
-<h3 id="_start_from_a_simple_extension">7.1. Start from a simple extension</h3>
+<h3 id="_start_from_a_simple_extension">Start from a simple extension</h3>
 <div class="paragraph">
 <p>Add a map to <code>extension</code> of the operation settings.
 Following example adds the method <code>restartAppServer</code> and it is available in the session closure.</p>
@@ -2156,7 +2185,7 @@ ssh.run {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_use_gradle_feature_in_an_extension">7.2. Use Gradle feature in an extension</h3>
+<h3 id="_use_gradle_feature_in_an_extension">Use Gradle feature in an extension</h3>
 <div class="paragraph">
 <p>We can use project properties such as configurations and dependencies from the extension.
 Following example transfers the <code>groovy-all</code> jar and execute a script on the remote host.</p>
@@ -2205,7 +2234,7 @@ task example &lt;&lt; {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_alternative_trait_based_extension">7.3. Alternative: Trait based extension</h3>
+<h3 id="_alternative_trait_based_extension">Alternative: Trait based extension</h3>
 <div class="paragraph">
 <p>Create an extension trait in the <code>buildSrc/src/main/groovy</code> directory.</p>
 </div>
@@ -2242,14 +2271,311 @@ ssh.run {
 <div class="paragraph">
 <p>An extension trait must be placed in the <code>buildSrc/src/main/groovy</code> directory.</p>
 </div>
+</div>
+</div>
+</div>
+<h1 id="_migration_guide" class="sect0">Migration Guide</h1>
+<div class="sect1">
+<h2 id="_migration_from_1_0_x_to_1_1_x">Migration from 1.0.x to 1.1.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to migrate from 1.0.x to 1.1.x.</p>
+</div>
+<div class="sect2">
+<h3 id="_new_features">New features</h3>
+<div class="sect3">
+<h4 id="_port_forwarding">Port forwarding</h4>
+<div class="paragraph">
+<p>Port forwarding is supported now.
+See <a href="#_enable_the_port_forwarding">Enable the port forwarding</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_map_based_dsl_extension_system">Map based DSL extension system</h4>
+<div class="paragraph">
+<p>We can extend DSL with a map of method name and implementation.
+Following example adds the method <code>restartAppServer</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh.settings {
+  extensions.add <span class="key">restartAppServer</span>: {
+    execute <span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/</span><span class="inline"><span class="inline-delimiter">${</span>project.name<span class="inline-delimiter">}</span></span><span class="content">/tomcat/bin/shutdown.sh</span><span class="delimiter">&quot;</span></span>
+    execute <span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/</span><span class="inline"><span class="inline-delimiter">${</span>project.name<span class="inline-delimiter">}</span></span><span class="content">/tomcat/bin/startup.sh</span><span class="delimiter">&quot;</span></span>
+  }
+}
+
+ssh.run {
+  session(ssh.remotes.testServer) {
+    restartAppServer()
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_no_backward_compatible_change">No backward compatible change</h3>
+<div class="sect3">
+<h4 id="_class_based_dsl_extension_system">Class based DSL extension system</h4>
+<div class="paragraph">
+<p>Any extension classes in the build script will no longer work.
+They must be placed in the <code>buildSrc/src/main/groovy</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>So we recommend to use the map based extension instead of the class based extension.</p>
+</div>
+<div class="paragraph">
+<p>For example, following extension:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// buildSrc/src/main/groovy/extensions.groovy</span>
+<span class="type">class</span> <span class="class">TomcatExtension</span> {
+  <span class="keyword">def</span> <span class="function">restartAppServer</span>() {
+    execute <span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/</span><span class="inline"><span class="inline-delimiter">${</span>project.name<span class="inline-delimiter">}</span></span><span class="content">/tomcat/bin/shutdown.sh</span><span class="delimiter">&quot;</span></span>
+    execute <span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/</span><span class="inline"><span class="inline-delimiter">${</span>project.name<span class="inline-delimiter">}</span></span><span class="content">/tomcat/bin/startup.sh</span><span class="delimiter">&quot;</span></span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>can be migrated to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// build.gradle</span>
+ssh.settings {
+  extensions.add <span class="key">restartAppServer</span>: {
+    execute <span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/</span><span class="inline"><span class="inline-delimiter">${</span>project.name<span class="inline-delimiter">}</span></span><span class="content">/tomcat/bin/shutdown.sh</span><span class="delimiter">&quot;</span></span>
+    execute <span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/</span><span class="inline"><span class="inline-delimiter">${</span>project.name<span class="inline-delimiter">}</span></span><span class="content">/tomcat/bin/startup.sh</span><span class="delimiter">&quot;</span></span>
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration_from_0_4_x_to_1_0_x">Migration from 0.4.x to 1.0.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to migrate from 0.4.x to 1.0.x.</p>
+</div>
+<div class="sect2">
+<h3 id="_no_backward_compatible_changes">No backward compatible changes</h3>
+<div class="paragraph">
+<p><code>sshexec</code> is no longer supported. Use <code>ssh.run</code> instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">task example &lt;&lt; {
+  <span class="comment">// FIXME: sshexec is no longer supported</span>
+  sshexec {
+    session(...) {...}
+  }
+
+  <span class="comment">// use ssh.run instead</span>
+  ssh.run {
+    session(...) {...}
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ssh {}</code> is no longer supported. Use <code>ssh.settings {}</code> instead.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// FIXME: ssh is no longer supported</span>
+ssh {
+  knownHosts = allowAnyHosts
+}
+
+<span class="comment">// use ssh.settings instead</span>
+ssh.settings {
+  knownHosts = allowAnyHosts
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration_from_0_3_x_to_0_4_x">Migration from 0.3.x to 0.4.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to migrate from 0.3.x to 0.4.x.</p>
+</div>
+<div class="paragraph">
+<p>Since 0.4.0, core code has been separated to the SSH library
+<a href="https://github.com/int128/groovy-ssh">groovy-ssh</a> and removed from the plugin.</p>
+</div>
+<div class="paragraph">
+<p>It introduces new style which is common between the plugin and the SSH library.
+It also causes no backward compatible changes.</p>
+</div>
+<div class="paragraph">
+<p>Please let me know if there is any problem.</p>
+</div>
+<div class="sect2">
+<h3 id="_new_style">New style</h3>
+<div class="sect3">
+<h4 id="_global_settings">Global settings</h4>
+<div class="paragraph">
+<p><code>ssh</code> method has been deprecated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh {
+  <span class="comment">// apply global settings here</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, use <code>ssh.settings</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh.settings {
+  <span class="comment">// apply global settings here</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ssh_execution">SSH execution</h4>
+<div class="paragraph">
+<p><code>SshTask</code> and <code>sshexec</code> method have been deprecated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// Deprecated</span>
+task testTask1(<span class="key">type</span>: SshTask) {
+  ssh {
+    dryRun = <span class="predefined-constant">true</span>
+  }
+  session(remotes.webServer) {
+    execute <span class="string"><span class="delimiter">'</span><span class="content">ls</span><span class="delimiter">'</span></span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">task testTask1 &lt;&lt; {
+  <span class="comment">// Deprecated</span>
+  sshexec {
+    ssh {
+      dryRun = <span class="predefined-constant">true</span>
+    }
+    session(remotes.webServer) {
+      execute <span class="string"><span class="delimiter">'</span><span class="content">ls</span><span class="delimiter">'</span></span>
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, use <code>ssh.run</code> method in the task.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">task testTask1 &lt;&lt; {
+  ssh.run {
+    settings {
+      <span class="comment">// apply one-time settings here</span>
+      dryRun = <span class="predefined-constant">true</span>
+    }
+    session(ssh.remotes.webServer) {
+      <span class="comment">// describe operations here</span>
+      execute <span class="string"><span class="delimiter">'</span><span class="content">ls</span><span class="delimiter">'</span></span>
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_no_backward_compatible_changes_2">No backward compatible changes</h3>
+<div class="sect3">
+<h4 id="_logging_settings">Logging settings</h4>
+<div class="paragraph">
+<p>Following settings have been removed.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outputLogLevel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LogLevel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log level of the standard output on the command or shell execution. Default is <code>LogLevel.QUIET</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>errorLogLevel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LogLevel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log level of the standard error on the command or shell execution. Default is <code>LogLevel.ERROR</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Instead use <code>logging</code> setting to enable verbose logging.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Key</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>logging</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this is <code>slf4j</code>, console log of the remote command is sent to Gradle logger. If this is <code>stdout</code>, it is sent to standard output/error. If this is <code>none</code>, console logging is turned off. Defaults to <code>slf4j</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">ssh.settings {
+  logging = <span class="string"><span class="delimiter">'</span><span class="content">stdout</span><span class="delimiter">'</span></span>
+}
+ssh.run {
+}</code></pre>
+</div>
+</div>
 <script src="/public/site.js"></script>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-18 22:03:04 JST
+Last updated 2015-05-27 13:10:53 UTC
 </div>
 </div>
 </body>
